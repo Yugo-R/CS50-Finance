@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <table class = "table table-striped">
+        <thead>
+            <tr>
+                <th scope="col" >Symbol</th>
+                <th scope="col">Name</th>
+                <th scope="col">Shares</th>
+                <th scope="col">Price</th>
+                <th scope="col">Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for i in portfolio%}
+            <tr>
+                <td>{{portfolio[i]['symbol']}}</td>
+                <td>{{portfolio[i]['name']}}</td>
+                <td>{{portfolio[i]['shares']}}</td>
+                <td>{{"${:,.2f}".format(portfolio[i]['price'])}}</td>
+                <td>{{"${:,.2f}".format(portfolio[i]['total'])}}</td>
+            </tr>
+            {% endfor %}
+            <td>CASH</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>{{"${:,.2f}".format(cash_remaining)}}</td>
+        </tbody>
+        <tfooter>
+            <td></td>
+            <td></td>
+            <td></td>
+            <th>GRAND TOTAL</th>
+            <th>{{"${:,.2f}".format(cash_total)}}</th>
+        </tfooter>
+    </table>
+{% endblock %}

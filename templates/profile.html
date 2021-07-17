@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Profile
+{% endblock %}
+
+{% block main %}
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Username</th>
+            <th scope="col">Total Shares</th>
+            <th scope="col">Current Cash</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{user[0]['username']}}</td>
+            <td>{{shares[0]['total']}}</td>
+            <td>{{"${:,.2f}".format(user[0]['cash'])}}</td>
+        </tr>
+    </tbody>
+    <tfooter>
+        <tr>
+            <td></td>
+            <td></td>
+            <th><a href ="/addcash">Add cash</a></th>
+        </tr>
+    </tfooter>
+</table>
+
+{% endblock %}
