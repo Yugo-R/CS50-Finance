@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quoted
+{% endblock %}
+
+{% block main %}
+    A share of {{companyname}} ({{symbol}}) costs ${{latestPrice}}
+    <form id=button_quoted action ="quote" method="GET">
+        <button  class="btn btn-primary" type="submit">Go back to search</button>
+    </form>
+{% endblock %}
